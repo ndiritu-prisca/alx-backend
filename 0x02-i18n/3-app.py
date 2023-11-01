@@ -2,7 +2,7 @@
 """Module for a basic Babel setup"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ def index() -> str:
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """Method to get language to use"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
